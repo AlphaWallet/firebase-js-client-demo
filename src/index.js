@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, doc, getDocs, setDoc, updateDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDs9QAsO-7dvFdYeWXiGkqD5SvBOeeLCEg",
@@ -16,10 +16,6 @@ const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 const tokenCollection = collection(firestore, 'tokens');
 
-getDocs(tokenCollection).then((snapshot) => {
-  const objs = snapshot.docs.map(doc => doc.data())
-  const data = objs.map((obj) => obj.name + ": " + obj.price)
-  const div = document.createElement("div")
-  div.innerText = data.join(",");
-  document.body.appendChild(div);
-})
+updateDoc(doc(tokenCollection, 'trueDoc'), {
+    testbool: new Date().getMilliseconds() % 2 == 0
+  });
