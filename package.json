@@ -1,24 +1,22 @@
 {
-  "name": "firebase-server",
-  "version": "1.0.0",
+  "author": "",
+  "dependencies": {
+    "firebase": "^9.6.7"
+  },
   "description": "",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "name": "firebase-server",
   "private": true,
   "scripts": {
     "build": "webpack",
     "serve": "webpack serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo undefinedError: no test specifiedundefined && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "firebase": "^9.6.7",
-    "lodash": "^4.17.21"
-  },
-  "devDependencies": {
-    "prettier": "^2.5.1",
-    "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4"
-  }
+  "version": "1.0.0"
 }
