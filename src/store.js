@@ -1,14 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {
-  getFirestore,
-  collection,
-  doc,
-  getDocs,
-  setDoc,
-  updateDoc,
-  addDoc,
-  deleteDoc,
-} from "firebase/firestore";
+import { getFirestore, doc, updateDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDs9QAsO-7dvFdYeWXiGkqD5SvBOeeLCEg",
@@ -25,11 +16,22 @@ const app = initializeApp(firebaseConfig);
 const firestore = getFirestore(app);
 
 export default class Store {
-  update(walletAddress, token, balance) {
+  updateBalance(walletAddress, token, balance) {
     const dr = doc(firestore, walletAddress + "/tokens");
-    setDoc(dr, {
+    updateDoc(dr, {
       token,
       balance,
+    }).then((result, error) => {
+      console.log(result);
+      console.log(error);
+    });
+  }
+
+  updatePrice(walletAddress, token, price) {
+    const dr = doc(firestore, walletAddress + "/tokens");
+    updateDoc(dr, {
+      token,
+      price,
     }).then((result, error) => {
       console.log(result);
       console.log(error);
