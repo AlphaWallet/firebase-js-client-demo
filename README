@@ -1,0 +1,1 @@
+This project demostrate using web3js to fetch coin balance, CoinGecko to fetch price, and update balance and price to Firestore.
