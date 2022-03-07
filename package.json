@@ -1,7 +1,15 @@
 {
   "author": "",
+  "type": "module",
   "dependencies": {
-    "firebase": "^9.6.7"
+    "assert": "^2.0.0",
+    "crypto-browserify": "^3.12.0",
+    "firebase": "^9.6.7",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "web3": "^1.7.1"
   },
   "description": "",
   "devDependencies": {
@@ -14,6 +22,7 @@
   "name": "firebase-server",
   "private": true,
   "scripts": {
+    "app": "node main.js",
     "build": "webpack",
     "serve": "webpack serve",
     "test": "echo undefinedError: no test specifiedundefined && exit 1"

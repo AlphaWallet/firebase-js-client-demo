@@ -1,7 +1,13 @@
-const path = require("path");
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+import webpack from "webpack";
 
-module.exports = {
-  entry: "./src/index.js",
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
+  entry: "./src/main.js",
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
@@ -13,5 +19,29 @@ module.exports = {
     },
     compress: true,
     port: 9000,
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
+    new webpack.ProvidePlugin({
+      Buffer: ["buffer", "Buffer"],
+    }),
+  ],
+  resolve: {
+    alias: {
+      process: "process/browser",
+      stream: "stream-browserify",
+      zlib: "browserify-zlib",
+      util: "util",
+    },
+    fallback: {
+      url: false,
+      os: false,
+      http: false,
+      https: false,
+      crypto: false,
+      stream: false,
+    },
   },
 };

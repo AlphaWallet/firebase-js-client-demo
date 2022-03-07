@@ -24,12 +24,15 @@ const app = initializeApp(firebaseConfig);
 
 const firestore = getFirestore(app);
 
-const COUNT = 100;
-window.createCollections = function () {
-  for (var i = 0; i < COUNT; i++) {
-    const tokenCollection = collection(firestore, "user" + i);
-    addDoc(tokenCollection, {
-      ETH: 5,
+export default class Store {
+  update(walletAddress, token, balance) {
+    const dr = doc(firestore, walletAddress + "/tokens");
+    setDoc(dr, {
+      token,
+      balance,
+    }).then((result, error) => {
+      console.log(result);
+      console.log(error);
     });
   }
-};
+}
